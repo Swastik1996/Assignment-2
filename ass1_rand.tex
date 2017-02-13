@@ -132,7 +132,7 @@ for i = 2 to n  \\
 \hspace*{2cm} $PrefixProduct(i,j)$ = $PrefixProduct(i-1,j)*M(T[i,j])$ \\
 \hspace*{2cm} $PrefixProductInverse(i,j)$ = $M(T[i,j])^{-1}*PrefixProductInverse(i-1,j)$ \\ \\
 Also we calculate $M(P)$ in $O(m^{2})$ time. \\ 
-Initialize M(P) = $I_{2x2}$ \\
+Initialize M(P) = $I_{2X2}$ \\
 for i = 1 to m \\ 
 \hspace*{1cm}for j = 1 to m \\  
 \hspace*{2cm} $M(P)$ = $M(P) * M(T(j,i))$ \\\\
