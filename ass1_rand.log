@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.7)  13 FEB 2017 15:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.2.7)  13 FEB 2017 15:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -399,6 +399,11 @@ LaTeX Warning: Command \textless invalid in math mode on input line 73.
 
 
 LaTeX Warning: Command \textless invalid in math mode on input line 73.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--165
+
+ []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 62--165
@@ -888,7 +893,7 @@ y5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on ass1_rand.pdf (4 pages, 175357 bytes).
+Output written on ass1_rand.pdf (4 pages, 175421 bytes).
 PDF statistics:
  90 PDF objects out of 1000 (max. 8388607)
  68 compressed objects within 1 object stream

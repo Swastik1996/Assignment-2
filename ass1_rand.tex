@@ -64,7 +64,7 @@ M(1)^{-1}=
 Basically, we will compare $M(P)$ with $M(T[i,i+m-1])$ $\forall$ i in $[1,n-m+1]$.\\
 We will calculate $M(P)$ by right multiplying corresponding $M(P[i])$ for i from 1 to m to an identity matrix. Similiarly,we will calcuate $M(T[1,m])$ After that to get, $M(T[i,i+m-1])$
 for i $\textgreater$ 1, we will take $M(T[i-1,i+m-2])$ , right multiply $M(T[i+m,i+m])$ and left multiply $M(T[i-1,i-1])^{-1}$ to it. \\ 
-The following pseudo code formalize the above algorithm. \\
+The following pseudo code formalize the above algorithm. \\\\
 $ pattern \leftarrow M(P) ;$ \\
 $ current \leftarrow M(T[1,m]) ; $ \\
 $for $ $ i $ = $ 1 $ $to$ $ n - m + 1 $ \\
