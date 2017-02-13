@@ -200,9 +200,9 @@ E[$e^{tX}$] \\\\
 =  $\prod_{i=1}^{n} E[e^{tX_i}]$ \\\\
 E[$e^{tX_i}$] = $\frac{e^{t}}{2}$ + $\frac{e^{2t}}{4}$ + $\frac{e^{3t}}{8}$ .... 
 = $\frac{e^{t}}{2(1-\frac{e^{t}}{2})}$
-= $\frac{e^{t}}{2 - e^{t}}$ \\
+= $\frac{e^{t}}{2 - e^{t}}$ \hfill{(Assuming $e^{t}$ $\textless$ $2$ so that sequence converges }\\
 E[$e^{tX}$] = $\prod_{i=1}^{n} E[e^{tX_i}]$ = $(\frac{e^{t}}{2 - e^{t}})^{n}$ \\\\
-Now $\mu$ = $2n$ \\\\
+Now $\mu$ = $\sum_{i=1}^{n}E[X_i]$ = $2n$ \\\\ %edit here
 P(X $\geq$ $2n(1 + \delta)$) $\leq$ $(\frac{e^{t}}{(2 - e^{t})e^{2t(1+\delta)}})^{n}$\\\\
 Now differentiating w.r.t $t$ to get the $minima$ we get \\\\
 P(X $\geq$ $2n(1+\delta)$) $\leq$ $(\frac{(1+\delta)^{2(1+\delta)}}{(1+2\delta)^{1+2\delta}})^{n}$ \\\\
