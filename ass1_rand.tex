@@ -242,8 +242,9 @@ We will estimate $p$ by a algorithm as follows : \\
 4. Report  $\widetilde{p}$. \\\\
 Now, given $\epsilon$, $\delta$ and $a$, we will estimate the value of N so that the following probability holds. \\
 Pr[$|p - \widetilde{p}|$ $\textgreater$ $p\epsilon$] $\textless$ $\delta$ \\\\
+$\Longrightarrow$ Pr[$(\widetilde{p}$ $\textless$ $p(1 - \epsilon))$ $\bigcup$ $\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \\\\
 $\Longrightarrow$ Pr[$\widetilde{p}$ $\textless$ $p(1 - \epsilon)$]
-+ Pr[$\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \\\\
++ Pr[$\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \hfill{$\textit{(Both events are disjoint)}$}\\\\
 $\Longrightarrow$ Pr[$N\widetilde{p}$ $\textless$ $Np(1 - \epsilon)$]
 + Pr[$N\widetilde{p}$ $\textgreater$ $Np(1 + \epsilon)$] $\textless$ $\delta$ \\\\
 $\Longrightarrow$ Pr[$H$ $\textless$ $E[H](1-\epsilon)$] + Pr[$H$ $\textgreater$ $E[H](1+\epsilon)$] $\textless$ $\delta$ \\\\
