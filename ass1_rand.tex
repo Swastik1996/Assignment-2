@@ -149,7 +149,9 @@ We can calculate these both in $O(n^{2})$ as follows:\\\\
 \hspace*{4cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(m,j)$ \\
 \hspace*{3cm}else \\
 \hspace*{4cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
-\hspace*{4cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\\\ 
+\hspace*{4cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\\\
+
+\pagebreak 
 Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\\\
 for i = m to n \\
 \hspace*{1cm}	for j = m to n \\ 
