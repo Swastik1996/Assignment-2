@@ -83,6 +83,7 @@ Overall Complexity = $O(n + m)$ time. \\\\
 Let M be a matrix then M mod p denotes a matrix in which all entries of M are replaced by their modulo with p.\\
 Hence, We perform the above algorithm but at each step, while multiplying two matrices, we take modulo with p. \\
 Let $M(A)$ and $M(B)$ be two matrices which are mapping of string $A$ and $B$ of size m. \\
+$\pi(t)$ = number of primes less than equal to t. \\ 
 Now, if $M(A)$ == $M(B)$ then $M(A)$ $mod$ $p$ == $M(A)$ $mod$ $p$ then $A$ == $B$ which is true. \\
 But if $A$ != $B$ and then $M(A)$ != $M(B)$ then it might be possible that $M(A)$ $mod$ $p$ == $M(B)$ $mod$ $p$. which will imply that $A$ == $B$ which is not true. \\
 Hence, this algorithm will fail iff $M(A)$ != $M(B)$ and $M(A)$ $mod$ $p$ == $M(B)$ $mod$ $p$. \\ 
@@ -94,7 +95,8 @@ Hence, every entry of $D$ is muliple of $p$, or conversely $p$ is factor of ever
 Now, take any entry of $D$ \textit{(say x)}. Now, x is bounded by $m^{th}$ Fibonacci number which is bounded by $2^{m}$; \\
 Now, any number $N$ has at most $logN$ factors hence x has atmost $m$ factors or atmost $n$ factors ( m $\leq$ n). \\ 
 Let say we choose $p$ uniformly randomly from range $[2,t]$ then probability that a factor of x was choosen was $\frac{n}{\pi(t)}$ \\
-There are four elements of $D$ hence probability that p was a factor of all of the element $\leq$ 
+There are four elements of $D$ and event that p is a factor of one of the element is independent of the event that p is a factor of other element of D. \\ 
+Hence probability that p was a factor of all of the element $\leq$ 
 $(\frac{n}{\pi(t)})^{4}$.\\ 
 We want this probability to be less than $\frac{1}{n^{4}}$. \\
 Hence, we want $\frac{n}{\pi(t)}$ to be less that $\frac{1}{n}$. \\ 
@@ -104,7 +106,7 @@ We get this probability to be less $\frac{1}{n^{4}}$.\\\\
 3. \\
 \textbf{Notation} : \\\\
 Here we assume that all operation are accompanied by a modulo operation by p which is chosen in the begining. \\ 
-Let S me 2-D bit-matrix and $S(i,j)$ denotes the element of $i_{th}$ row and $j_{th}$ column. \\
+Let S be 2-D bit-matrix and $S(i,j)$ denotes the element of $i^{th}$ row and $j^{th}$ column. \\
 $Prefixproduct(i,j)$ = Product of all the $M(S(k,j))$ s.t. 1 $\leq$ k $\leq$ i. \\
 i.e. $Prefixproduct(i,j)$ = $M(S(1,j)) * M(S(2,j)) * ... * M(S(i,j))$\\
 $Prefixproductinverse(i,j)$ = Matrix inverse of $Prefixproduct(i,j)$ \\
