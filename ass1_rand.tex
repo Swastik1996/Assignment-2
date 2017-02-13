@@ -175,7 +175,7 @@ For given geometrically distributed random variable, we know that expected value
 		1  \hspace{1cm}   $if head is obtained at $i^{th}$ iteration$ \\
 		0  \hspace{1cm}   $otherwise$ 
 		\end{cases}
-\] %
+\] 
 $E[X_i^{`}]$ = $\frac{1}{2}$ * 1 + $\frac{1}{2}$ * 0 = $\frac{1}{2}$. \\\\
 $X^{`}$ = $\sum_{i=1}^{2n(1 + \delta) - 1}X_i^{`}$ \hfill{Number of heads in $2n(1 + \delta) - 1$} tosses\\\\
 $E[X^{`}]$ = $\sum_{i=1}^{2n(1 + \delta) - 1}E[X_i^{`}]$  = $n(1+\delta) - \frac{1}{2}$\hfill{By linearity of expectation}\\\\
@@ -224,7 +224,22 @@ $\textgreater \delta $ \\
 Hence proved. \\\\
 \section*{3. Estimating biasness of a coin }
 Strategy:
-We toss the coin N times, Let $H$ be the random variable denoting the number of heads in N coin tosses. We report $\widetilde{p}$ to be $\frac{H}{N}$. \\
+We toss the coin N times, Let $H$ be the random variable denoting the number of heads in N coin tosses. Let p be the probability of getting a head.\\ % We report $\widetilde{p}$ to be $\frac{H}{N}$. \\
+Let us define $H_i$ as follows : \\  
+\[
+	H_i =\begin{cases}
+		1  \hspace{1cm}   $if head is obtained at $i^{th}$ time$ \\
+		0  \hspace{1cm}   $otherwise$ 
+		\end{cases}
+\] 
+$E[H_i]$ = $1*p$ + $0*(1-p)$  = $p$ \\ 
+$H = \sum_{i=1}^{N}H_i$ \\ 
+$E[H] = \sum_{i=1}^{N}E[H_i]$ = $N*p$ \\\\
+We will estimate $p$ by a algorithm as follows : \\
+1. Toss the coin N times. \\
+2. Now, H is the number of heads. \\
+3. $\widetilde{p}$ $\leftarrow$ $\frac{H}{N}$. \\
+4. Report  $\widetilde{p}$. \\\\
 Now, given $\epsilon$, $\delta$ and $a$, we will estimate the value of N so that the following probability hold. \\
 Pr[$|p - \widetilde{p}|$ $\textgreater$ $p\epsilon$] $\textless$ $\delta$ \\\\
 $\Longrightarrow$ Pr[$\widetilde{p}$ $\textless$ $p(1 - \epsilon)$]
