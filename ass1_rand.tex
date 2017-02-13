@@ -122,7 +122,7 @@ Now we have defined the new mapping M, we can state our algorithm. \\\\
 Let T be the text $nXn$ 2-D bit-matrix and P be the pattern $mXm$ 2-D bit-matrix.
 $T(i,j)$ is the element at the $i^{th}$ row and $j^{th}$ column.\\  
 First we show how to calculate $PrefixProduct(i,j)$ and $PrefixProductInverse$ for matrix T in $O(n^{2})$ time. \\
-$PrefixProduct(1,j)$ and $PrefixProductInverse(1,j)$ will be simply the M of the corresponding element.
+$PrefixProduct(1,j)$ and $PrefixProductInverse(1,j)$ will be simply the $M $and $M^{-1}$ of the corresponding element.
 To calculate them for other rows just use the $PrefixProduct(i,j)$ and $PrefixProductInverse$ of just upper row. \\
 Following pseudocode describes out algorithm : \\
 for j = 1 to n  \\
