@@ -242,13 +242,14 @@ We will estimate $p$ by a algorithm as follows : \\
 4. Report  $\widetilde{p}$. \\\\
 Now, given $\epsilon$, $\delta$ and $a$, we will estimate the value of N so that the following probability holds. \\
 Pr[$|p - \widetilde{p}|$ $\textgreater$ $p\epsilon$] $\textless$ $\delta$ \\\\
-$\Longrightarrow$ Pr[$(\widetilde{p}$ $\textless$ $p(1 - \epsilon))$ $\bigcup$ $\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \\\\
-$\Longrightarrow$ Pr[$\widetilde{p}$ $\textless$ $p(1 - \epsilon)$]
-+ Pr[$\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \hfill{$\textit{(Both events are disjoint)}$}\\\\
-$\Longrightarrow$ Pr[$N\widetilde{p}$ $\textless$ $Np(1 - \epsilon)$]
-+ Pr[$N\widetilde{p}$ $\textgreater$ $Np(1 + \epsilon)$] $\textless$ $\delta$ \\\\
-$\Longrightarrow$ Pr[$H$ $\textless$ $E[H](1-\epsilon)$] + Pr[$H$ $\textgreater$ $E[H](1+\epsilon)$] $\textless$ $\delta$ \\\\
-Now Pr[$H$ $\textless$ $E[H](1-\epsilon)$] + Pr[$H$ $\textgreater$ $E[H](1+\epsilon)$] \\\\ $\textless$ $e^{\frac{-N\epsilon^{2}p}{2}}$ + $e^{\frac{-N\epsilon^{2}p}{4}}$ \\\\ $\textless$ $2e^{\frac{-N\epsilon^{2}p}{4}}$ \\\\ $\textless$ $2e^{\frac{-N\epsilon^{2}a}{4}}$ \\\\
+Now Pr[$|p - \widetilde{p}|$ $\textgreater$ $p\epsilon$] \\\\
+$\leq$ Pr[$|p - \widetilde{p}|$ $\geq$ $p\epsilon$] \\\\ 
+= Pr[$(\widetilde{p}$ $\leq$ $p(1 - \epsilon))$ $\bigcup$ $\widetilde{p}$ $\geq$ $p(1 + \epsilon)$]  \\\\
+=  Pr[$\widetilde{p}$ $\textless$ $p(1 - \epsilon)$]
++ Pr[$\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$]\hfill{$\textit{(Both events are disjoint)}$}\\\\
+= Pr[$N\widetilde{p}$ $\leq$ $Np(1 - \epsilon)$]
++ Pr[$N\widetilde{p}$ $\geq$ $Np(1 + \epsilon)$] \\\\
+= Pr[$H$ $\leq$ $E[H](1-\epsilon)$] + Pr[$H$ $\geq$ $E[H](1+\epsilon)$] \\\\ $\textless$ $e^{\frac{-N\epsilon^{2}p}{2}}$ + $e^{\frac{-N\epsilon^{2}p}{4}}$ \\\\ $\textless$ $2e^{\frac{-N\epsilon^{2}p}{4}}$ \\\\ $\leq$ $2e^{\frac{-N\epsilon^{2}a}{4}}$ \\\\
 If we have this term to be less than $\delta$ then our Probability condition will hold.\\\\ 
 $2e^{\frac{-N\epsilon^{2}a}{4}}$ $\textless$ $\delta$ \\\\
 $\Longrightarrow$
