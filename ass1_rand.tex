@@ -79,7 +79,7 @@ Calculating $M(T[1,m])$ takes $O(m)$ time \\
 Loop Runs $n - m + 1$ times and at each iteration we do a $O(1)$ computation.Hence loop takes O(n - m + 1) time. \\ 
 Overall Complexity = $O(n + m)$ time. \\\\
 2. \\
-\textbf{Notation} :  \\\\
+\textbf{Notation} :  \\
 Let M be a matrix then M mod p denotes a matrix in which all entries of M are replaced by their modulo with p.\\
 Hence, We perform the above algorithm but at each step, while multiplying two matrices, we take modulo with p. \\
 Let $M(A)$ and $M(B)$ be two matrices which are mapping of string $A$ and $B$ of size m. \\
@@ -104,13 +104,13 @@ Putting $t$ = $n^{2}logn$
 and $\pi(t)$ = $\frac{t}{logt}$ .\hfill{\textit{(As done in class)} }   \\
 We get this probability to be less $\frac{1}{n^{4}}$.\\\\
 3. \\
-\textbf{Notation} : \\\\
+\textbf{Notation} : \\
 Here we assume that all operation are accompanied by a modulo operation by p which is chosen in the begining. \\ 
 Let S be 2-D bit-matrix and $S(i,j)$ denotes the element of $i^{th}$ row and $j^{th}$ column. \\
 $PrefixProduct(i,j)$ = Product of all the $M(S(k,j))$ s.t. 1 $\leq$ k $\leq$ i. \\
 i.e. $PrefixProduct(i,j)$ = $M(S(1,j)) * M(S(2,j)) * ... * M(S(i,j))$\\
 $PrefixProductInverse(i,j)$ = Matrix inverse of $PrefixProduct(i,j)$ \\
-i.e. $PrefixProductInverse(i,j)$ = $M(S(i,j))^{-1} * M(S(i-1,j))^{-1} * ... * M(S(1,j))^{-1}$ \\
+i.e. $PrefixProductInverse(i,j)$ = $M(S(i,j))^{-1} * M(S(i-1,j))^{-1} * ... * M(S(1,j))^{-1}$ \\\\
 Now let us assume there is a matrix X of size $NXM$ then we have map this matrix to 2X2 matrix M(X) \\
 We define this map as follows: \\ 
 If X is column matrix, cut this matrix into two submatrix by cutting at any row. Let U be upper column matrix and L be the lower one. \\
