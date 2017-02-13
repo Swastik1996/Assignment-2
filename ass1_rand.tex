@@ -177,8 +177,8 @@ For given geometrically distributed random variable, we know that expected value
 		\end{cases}
 \] %
 $E[X_i^{`}]$ = $\frac{1}{2}$ * 1 + $\frac{1}{2}$ * 0 = $\frac{1}{2}$. \\\\
-$X^{`}$ = $\sum_{i=1}^{2n(1 + \delta) - 1}X_i^{`}$ \\\\
-$E[X^{`}]$ = $n(1+\delta) - \frac{1}{2}$ \\\\
+$X^{`}$ = $\sum_{i=1}^{2n(1 + \delta) - 1}X_i^{`}$ \hfill{Number of heads in $2n(1 + \delta) - 1$} tosses\\\\
+$E[X^{`}]$ = $\sum_{i=1}^{2n(1 + \delta) - 1}E[X_i^{`}]$  = $n(1+\delta) - \frac{1}{2}$ \hfill{By linearity of expectation}\\\\
 Assuming $n \gg \frac{1}{2}$, we get $E[X^{`}]$ =  $n(1+\delta) $ \\\\
 P($X^{`} \leq (n-1)$) \\\\
 = P($X^{`} \leq (n-1)\frac{E[X^{`}]}{(1 + \delta)n}$)\\\\
