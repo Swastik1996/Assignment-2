@@ -149,14 +149,16 @@ else \\
 \hspace*{1cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
 \hspace*{1cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
 Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\
-if $j$ = $m$ \\
-\hspace*{1cm}	Initialize $M(T(i,j))$ = $I_{2X2}$ \\ 
-\hspace*{1cm}	for k = 1 to m  \\ 
-\hspace*{2cm}		$M(T(i,j))$ = $M(T(i,j)) * M_c(i,k)$ \\
-else \\
-\hspace*{1cm} $M(T(i,j))$ = $M_c(i,j-m)^{-1}*M(T(i,j-1))*M_c(i,j)$\\\\
+for i = m to n
+\hspace*{1cm}	for j = m to n
+\hspace*{2cm}if $j$ = $m$ \\
+\hspace*{3cm}	Initialize $M(T(i,j))$ = $I_{2X2}$ \\ 
+\hspace*{3cm}	for k = 1 to m  \\ 
+\hspace*{4cm}		$M(T(i,j))$ = $M(T(i,j)) * M_c(i,k)$ \\
+\hspace*{2cm}else \\
+\hspace*{3cm} $M(T(i,j))$ = $M_c(i,j-m)^{-1}*M(T(i,j-1))*M_c(i,j)$\\\\
 For $n-m+1$ elements we take $O(m)$ time and for rest of the elements we take $O(1)$ time. Hence total time = $O(m*(n-m+1))$ + $O((n-m+1)*(n-m+1))$ = $O(n^{2})$\\ 
-Hence we just go at each i,j s.t m $\leq$ i,j $\leq$ n,compare M(T) with $M(P(i,j))$ in $O(1)$ time which take overall $O(n^2)$
+Hence we just go at each i,j s.t m $\leq$ i,j $\leq$ n,compare M(P) with $M(T(i,j))$ in $O(1)$ time which take overall $O(n^2)$
 
 
 
