@@ -120,24 +120,25 @@ Then $M(X)$ = $M(L) * M(R)$ \\
 Now we have defined the new mapping M, we can state out algorithm. \\
 \textbf{Algorithm} : 
 Let T be the text $nXn$ 2-D bit-matrix and P be the pattern $mXm$ 2-D bit-matrix.
+$T(i,j)$ is the element at the $i^{th}$ row and $j^{th}$ column.\\  
 First we show how to calculate $PrefixProduct(i,j)$ and $PrefixProductInverse$ for matrix T in $O(n^{2})$ time. \\
 $PrefixProduct(1,j)$ and $PrefixProductInverse(1,j)$ will be simply the M of the corresponding element.
 To calculate them for other rows just use the $PrefixProduct(i,j)$ and $PrefixProductInverse$ of just upper row. \\
 Following pseudocode describes out algorithm : \\
 for j = 1 to n  \\
-\hspace*{1cm}	$PrefixProduct(1,j)$ = $M(T[1,j])$ \\ 
-\hspace*{1cm}	$PrefixProductInverse(1,j)$ = $M(T[1,j])^{-1}$ \\
+\hspace*{1cm}	$PrefixProduct(1,j)$ = $M(T(1,j))$ \\ 
+\hspace*{1cm}	$PrefixProductInverse(1,j)$ = $M(T(1,j))^{-1}$ \\
 for i = 2 to n  \\ 
 \hspace*{1cm} for j = 1 to n \\ 
-\hspace*{2cm} $PrefixProduct(i,j)$ = $PrefixProduct(i-1,j)*M(T[i,j])$ \\
-\hspace*{2cm} $PrefixProductInverse(i,j)$ = $M(T[i,j])^{-1}*PrefixProductInverse(i-1,j)$ \\ \\
+\hspace*{2cm} $PrefixProduct(i,j)$ = $PrefixProduct(i-1,j)*M(T(i,j))$ \\
+\hspace*{2cm} $PrefixProductInverse(i,j)$ = $M(T(i,j))^{-1}*PrefixProductInverse(i-1,j)$ \\ \\
 Also we calculate $M(P)$ in $O(m^{2})$ time. \\ 
 Initialize M(P) = $I_{2X2}$ \\
 for i = 1 to m \\ 
 \hspace*{1cm}for j = 1 to m \\  
 \hspace*{2cm} $M(P)$ = $M(P) * M(T(j,i))$ \\\\
-Now we have to calculate mapping of every submatrix of size m of matrix P. Let $M(P(i,j))$ is the mapping of submatrix of size m ending at (i,j) in P. $m$ $\leq$ $i,j$ $\leq$ $n$. We will calculate this mapping in $O(n^{2})$ time as follows : \\
-First we calculate $M_c(i,j)$ which is product of all the $M(P[k,j])$
+Now we have to calculate mapping of every submatrix of size m of matrix T. Let $M(T(i,j))$ is the mapping of submatrix of size m ending at (i,j) in T. $m$ $\leq$ $i,j$ $\leq$ $n$. We will calculate this mapping in $O(n^{2})$ time as follows : \\
+First we calculate $M_c(i,j)$ which is product of all the $M(T[k,j])$
 such that $i - m + 1$ $\leq$ $k$ $\leq$ $i$, $m$ $\leq$ $i$ $\leq$ $n$,$1$ $\leq$ $j$ $\leq$ $n$ \\
 Also we will calculate $M_c(i,j)^{-1}$ with it. 
 We can calculate these both in $O(n^{2})$ as follows:\\
@@ -146,14 +147,14 @@ If $i$ = $m$ \\
 \hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(m,j)$ \\
 else \\
 \hspace*{1cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
-\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
-Now with help of this we can calculate $M(P(i,j))$ in $O(n^{2})$ as follows : \\
+\hspace*{1cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
+Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\
 if $j$ = $m$ \\
-\hspace*{1cm}	Initialize $M(P(i,j))$ = $I_{2X2}$ \\ 
+\hspace*{1cm}	Initialize $M(T(i,j))$ = $I_{2X2}$ \\ 
 \hspace*{1cm}	for k = 1 to m  \\ 
-\hspace*{2cm}		$M(P(i,j))$ = $M(P(i,j)) * M_c(i,k)$ \\
+\hspace*{2cm}		$M(T(i,j))$ = $M(T(i,j)) * M_c(i,k)$ \\
 else \\
-\hspace*{1cm} $M(P(i,j))$ = $M_c(i,j-m)^{-1}*M(P(i,j-1))*M_c(i,j)$\\\\
+\hspace*{1cm} $M(T(i,j))$ = $M_c(i,j-m)^{-1}*M(T(i,j-1))*M_c(i,j)$\\\\
 For $n-m+1$ elements we take $O(m)$ time and for rest of the elements we take $O(1)$ time. Hence total time = $O(m*(n-m+1))$ + $O((n-m+1)*(n-m+1))$ = $O(n^{2})$\\ 
 Hence we just go at each i,j s.t m $\leq$ i,j $\leq$ n,compare M(T) with $M(P(i,j))$ in $O(1)$ time which take overall $O(n^2)$
 
