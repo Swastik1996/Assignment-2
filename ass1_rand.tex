@@ -124,7 +124,7 @@ $T(i,j)$ is the element at the $i^{th}$ row and $j^{th}$ column.\\
 First we show how to calculate $PrefixProduct(i,j)$ and $PrefixProductInverse$ for matrix T in $O(n^{2})$ time. \\
 $PrefixProduct(1,j)$ and $PrefixProductInverse(1,j)$ will be simply the $M $and $M^{-1}$ of the corresponding element.
 To calculate them for other rows just use the $PrefixProduct$ and $PrefixProductInverse$ of previous row. \\
-Following pseudocode describes our algorithm : \\
+Following pseudocode describes our algorithm : \\\\
 for j = 1 to n  \\
 \hspace*{1cm}	$PrefixProduct(1,j)$ = $M(T(1,j))$ \\ 
 \hspace*{1cm}	$PrefixProductInverse(1,j)$ = $M(T(1,j))^{-1}$ \\
@@ -132,7 +132,7 @@ for i = 2 to n  \\
 \hspace*{1cm} for j = 1 to n \\ 
 \hspace*{2cm} $PrefixProduct(i,j)$ = $PrefixProduct(i-1,j)*M(T(i,j))$ \\
 \hspace*{2cm} $PrefixProductInverse(i,j)$ = $M(T(i,j))^{-1}*PrefixProductInverse(i-1,j)$ \\ \\
-Also we calculate $M(P)$ in $O(m^{2})$ time. \\ 
+Also we calculate $M(P)$ in $O(m^{2})$ time. \\\\ 
 Initialize M(P) = $I_{2X2}$ \\
 for i = 1 to m \\ 
 \hspace*{1cm}for j = 1 to m \\  
@@ -141,14 +141,16 @@ Now we have to calculate mapping of every submatrix of size m of matrix T. Let $
 First we calculate $M_c(i,j)$ which is product of all the $M(T[k,j])$
 such that $i - m + 1$ $\leq$ $k$ $\leq$ $i$, $m$ $\leq$ $i$ $\leq$ $n$,$1$ $\leq$ $j$ $\leq$ $n$ \\
 Also we will calculate $M_c(i,j)^{-1}$ with it. 
-We can calculate these both in $O(n^{2})$ as follows:\\
-If $i$ = $m$ \\
-\hspace*{1cm} $M_c(m,j)$ = $PrefixProduct(m,j)$ \\
-\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(m,j)$ \\
-else \\
-\hspace*{1cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
-\hspace*{1cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
-Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\
+We can calculate these both in $O(n^{2})$ as follows:\\\\
+\hspace*{1cm}for i = m to n \\
+\hspace*{2cm}	for j = 1 to n\\ 
+\hspace*{3cm} If $i$ = $m$ \\
+\hspace*{4cm} $M_c(m,j)$ = $PrefixProduct(m,j)$ \\
+\hspace*{4cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(m,j)$ \\
+\hspace*{3cm}else \\
+\hspace*{4cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
+\hspace*{4cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\\\ 
+Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\\\
 for i = m to n \\
 \hspace*{1cm}	for j = m to n \\ 
 \hspace*{2cm}if $j$ = $m$ \\
@@ -158,8 +160,8 @@ for i = m to n \\
 \hspace*{2cm}else \\
 \hspace*{3cm} $M(T(i,j))$ = $M_c(i,j-m)^{-1}*M(T(i,j-1))*M_c(i,j)$\\\\
 For $n-m+1$ elements we take $O(m)$ time and for rest of the elements we take $O(1)$ time. Hence total time = $O(m*(n-m+1))$ + $O((n-m+1)*(n-m+1))$ = $O(n^{2})$\\ 
-Hence we just go at each i,j s.t m $\leq$ i,j $\leq$ n,compare M(P) with $M(T(i,j))$ in $O(1)$ time which take overall $O(n^2)$
-
+Hence we just go at each i,j s.t m $\leq$ i,j $\leq$ n,compare M(P) with $M(T(i,j))$ in $O(1)$ time which take overall $O(n^2)$ \\
+Now,for the error probability, we again recieve two $2X2$ matrix and compare them in our algorithm. Hence,we can again choose prime as done in last part and get the same error probability i.e. $\frac{1}{n^4}$. \\
 
 
 
