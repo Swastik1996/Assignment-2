@@ -234,13 +234,13 @@ Let us define $H_i$ as follows : \\
 \] 
 $E[H_i]$ = $1*p$ + $0*(1-p)$  = $p$ \\ 
 $H = \sum_{i=1}^{N}H_i$ \\ 
-$E[H] = \sum_{i=1}^{N}E[H_i]$ = $N*p$ \\\\
+$E[H] = \sum_{i=1}^{N}E[H_i]$ = $N*p$ $\hfill{By linearity of expectation}$\\\\
 We will estimate $p$ by a algorithm as follows : \\
 1. Toss the coin N times. \\
 2. Now, H is the number of heads. \\
 3. $\widetilde{p}$ $\leftarrow$ $\frac{H}{N}$. \\
 4. Report  $\widetilde{p}$. \\\\
-Now, given $\epsilon$, $\delta$ and $a$, we will estimate the value of N so that the following probability hold. \\
+Now, given $\epsilon$, $\delta$ and $a$, we will estimate the value of N so that the following probability holds. \\
 Pr[$|p - \widetilde{p}|$ $\textgreater$ $p\epsilon$] $\textless$ $\delta$ \\\\
 $\Longrightarrow$ Pr[$\widetilde{p}$ $\textless$ $p(1 - \epsilon)$]
 + Pr[$\widetilde{p}$ $\textgreater$ $p(1 + \epsilon)$] $\textless$ $\delta$ \\\\
