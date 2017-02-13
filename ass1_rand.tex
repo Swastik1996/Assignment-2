@@ -109,8 +109,8 @@ Here we assume that all operation are accompanied by a modulo operation by p whi
 Let S be 2-D bit-matrix and $S(i,j)$ denotes the element of $i^{th}$ row and $j^{th}$ column. \\
 $PrefixProduct(i,j)$ = Product of all the $M(S(k,j))$ s.t. 1 $\leq$ k $\leq$ i. \\
 i.e. $PrefixProduct(i,j)$ = $M(S(1,j)) * M(S(2,j)) * ... * M(S(i,j))$\\
-$PrefixProductinverse(i,j)$ = Matrix inverse of $PrefixProduct(i,j)$ \\
-i.e. $PrefixProductinverse(i,j)$ = $M(S(i,j))^{-1} * M(S(i-1,j))^{-1} * ... * M(S(1,j))^{-1}$ \\
+$PrefixProductInverse(i,j)$ = Matrix inverse of $PrefixProduct(i,j)$ \\
+i.e. $PrefixProductInverse(i,j)$ = $M(S(i,j))^{-1} * M(S(i-1,j))^{-1} * ... * M(S(1,j))^{-1}$ \\
 Now let us assume there is a matrix X of size $NXM$ then we have map this matrix to 2X2 matrix M(X) \\
 We define this map as follows: \\ 
 If X is column matrix, cut this matrix into two submatrix by cutting at any row. Let U be upper column matrix and L be the lower one. \\
@@ -120,17 +120,17 @@ Then $M(X)$ = $M(L) * M(R)$ \\
 Now we have defined the new mapping M, we can state out algorithm. \\
 \textbf{Algorithm} : 
 Let T be the text $nXn$ 2-D bit-matrix and P be the pattern $mXm$ 2-D bit-matrix.
-First we show how to calculate $PrefixProduct(i,j)$ and $PrefixProductinverse$ for matrix T in $O(n^{2})$ time. \\
-$PrefixProduct(1,j)$ and $PrefixProductinverse(1,j)$ will be simply the M of the corresponding element.
-To calculate them for other rows just use the $PrefixProduct(i,j)$ and $PrefixProductinverse$ of just upper row. \\
+First we show how to calculate $PrefixProduct(i,j)$ and $PrefixProductInverse$ for matrix T in $O(n^{2})$ time. \\
+$PrefixProduct(1,j)$ and $PrefixProductInverse(1,j)$ will be simply the M of the corresponding element.
+To calculate them for other rows just use the $PrefixProduct(i,j)$ and $PrefixProductInverse$ of just upper row. \\
 Following pseudocode describes out algorithm : \\
 for j = 1 to n  \\
 \hspace*{1cm}	$PrefixProduct(1,j)$ = $M(T[1,j])$ \\ 
-\hspace*{1cm}	$PrefixProductinverse(1,j)$ = $M(T[1,j])^{-1}$ \\
+\hspace*{1cm}	$PrefixProductInverse(1,j)$ = $M(T[1,j])^{-1}$ \\
 for i = 2 to n  \\ 
 \hspace*{1cm} for j = 1 to n \\ 
 \hspace*{2cm} $PrefixProduct(i,j)$ = $PrefixProduct(i-1,j)*M(T[i,j])$ \\
-\hspace*{2cm} $PrefixProductinverse(i,j)$ = $M(T[i,j])^{-1}*PrefixProductinverse(i-1,j)$ \\ \\
+\hspace*{2cm} $PrefixProductInverse(i,j)$ = $M(T[i,j])^{-1}*PrefixProductInverse(i-1,j)$ \\ \\
 Also we calculate $M(P)$ in $O(m^{2})$ time. \\ 
 Initialize M(P) = $I_{2x2}$ \\
 for i = 1 to m \\ 
@@ -143,13 +143,13 @@ Also we will calculate $M_c(i,j)^{-1}$ with it.
 We can calculate these both in $O(n^{2})$ as follows:\\
 If $i$ = $m$ \\
 \hspace*{1cm} $M_c(m,j)$ = $PrefixProduct(m,j)$ \\
-\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductinverse(m,j)$ \\
+\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(m,j)$ \\
 else \\
-\hspace*{1cm} $M_c(i,j)$ = $PrefixProductinverse(i-m,j)*PrefixProduct(i,j)$ \\
-\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductinverse(i,j)*PrefixProduct(i-m,j)$ \\ 
+\hspace*{1cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
+\hspace*{1cm} $M_c(m,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
 Now with help of this we can calculate $M(P(i,j))$ in $O(n^{2})$ as follows : \\
 if $j$ = $m$ \\
-\hspace*{1cm}	Initialize $M(P(i,j))$ = $I_{2x2}$ \\ 
+\hspace*{1cm}	Initialize $M(P(i,j))$ = $I_{2X2}$ \\ 
 \hspace*{1cm}	for k = 1 to m  \\ 
 \hspace*{2cm}		$M(P(i,j))$ = $M(P(i,j)) * M_c(i,k)$ \\
 else \\
