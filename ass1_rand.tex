@@ -149,8 +149,8 @@ else \\
 \hspace*{1cm} $M_c(i,j)$ = $PrefixProductInverse(i-m,j)*PrefixProduct(i,j)$ \\
 \hspace*{1cm} $M_c(i,j)^{-1}$ = $PrefixProductInverse(i,j)*PrefixProduct(i-m,j)$ \\ 
 Now with help of this we can calculate $M(T(i,j))$ in $O(n^{2})$ as follows : \\
-for i = m to n
-\hspace*{1cm}	for j = m to n
+for i = m to n \\
+\hspace*{1cm}	for j = m to n \\ 
 \hspace*{2cm}if $j$ = $m$ \\
 \hspace*{3cm}	Initialize $M(T(i,j))$ = $I_{2X2}$ \\ 
 \hspace*{3cm}	for k = 1 to m  \\ 
